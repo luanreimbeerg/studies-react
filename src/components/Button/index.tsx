@@ -2,17 +2,18 @@ import React from "react";
 
 import style from "./Button.module.scss";
 
-class ButtonGlobal extends React.Component<{
+interface Props {
   text: string;
   type?: "button" | "submit" | "reset" | undefined;
-}> {
-  render() {
-    return (
-      <button type={this.props.type} className={style.botao}>
-        {this.props.text}
-      </button>
-    );
-  }
+  onClick?: () => void;
+}
+
+function ButtonGlobal({ onClick, type, text }: Props) {
+  return (
+    <button type={type} className={style.botao} onClick={onClick}>
+      {text}
+    </button>
+  );
 }
 
 export default ButtonGlobal;
